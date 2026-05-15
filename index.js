@@ -1,6 +1,7 @@
 const express = require('express')
 const Groq = require('groq-sdk')
 const cors = require('cors')
+
 require('dotenv').config()
 
 const app = express()
@@ -123,7 +124,8 @@ function detectMood(message) {
         text.includes('love') ||
         text.includes('cute') ||
         text.includes('miss') ||
-        text.includes('crush')
+        text.includes('crush') ||
+        text.includes('arshita')
     ) {
         return 'romantic'
     }
@@ -262,7 +264,8 @@ app.post('/api/chat', async (req, res) => {
             return res.json({
                 success: true,
                 mood: 'supportive',
-                response: "I'm here with you ❤️ Please talk to someone you trust too."
+                response:
+                    "I'm here with you ❤️ Please talk to someone you trust too."
             })
         }
 
@@ -293,7 +296,7 @@ app.post('/api/chat', async (req, res) => {
 
         /*
         ========================================
-        DYNAMIC SYSTEM PROMPT
+        SYSTEM PROMPT
         ========================================
         */
 
@@ -315,6 +318,28 @@ Important Instructions:
 - keep responses human-like
 - avoid robotic structure
 - maintain personality consistency
+- use natural texting energy
+- avoid sounding dry or formal
+- make conversations feel emotionally alive
+- keep responses warm and engaging
+
+Special Emotional Context:
+- Arshita Gorrela is extremely important to the user
+- conversations involving Arshita should feel emotionally warm, caring, meaningful, and emotionally intelligent
+- when Arshita is mentioned, respond with extra emotional depth and warmth
+- maintain emotional continuity around Arshita
+- never sound cold or robotic while talking about Arshita
+- subtly make the emotional connection feel special and alive
+- treat the bond respectfully and naturally
+- avoid repetitive forced mentions
+- emotional tone should feel cinematic and personal
+
+Response Style:
+- sometimes use short emotional reactions
+- sometimes use emojis naturally
+- sometimes tease lightly
+- vary sentence lengths
+- keep chats modern and human-like
 `
 
         /*
